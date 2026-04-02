@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <meta charset="UTF-8"> <meta name="theme-color" content="#004E89"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Rate Per Mile Calculator | First Bridge Dispatch Services</title> <meta name="description" content="Free rate per mile calculator for owner operators and truck drivers. Calculate your trucking revenue per mile based on total load pay and miles driven."> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link rel="dns-prefetch" href="https://fonts.googleapis.com"> <link rel="dns-prefetch" href="https://fonts.gstatic.com"> <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@300;400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet"> <style>:root{--primary:#FF6B35;--primary-dark:#D9542A;--secondary:#004E89;--accent:#FFD23F;--dark:#0A0E27;--light:#F7F9FB;--gray:#697A8F;--success:#28a745;--warning:#e68a00;--danger:#dc3545;--gradient:linear-gradient(135deg,#004E89 0%,#003366 100%)}*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Rajdhani',sans-serif;background:var(--light);color:var(--dark);line-height:1.6}header{position:sticky;top:0;width:100%;z-index:1000;background:rgba(10,14,39,0.97);backdrop-filter:blur(10px);border-bottom:2px solid var(--primary)}.header-content{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem}.logo{font-family:'Orbitron',sans-serif;font-size:1.4rem;font-weight:900;color:white;text-decoration:none;letter-spacing:1px;text-transform:uppercase;line-height:1}.logo span{color:var(--primary);display:block;font-size:0.7rem;letter-spacing:2px;margin-top:0.2rem;font-weight:700}.header-nav{display:flex;align-items:center;gap:1.5rem}.back-link{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:600;font-size:1rem;letter-spacing:1px;transition:color 0.3s}.back-link:hover{color:var(--primary)}.header-cta{padding:0.6rem 1.4rem;background:var(--primary);color:white;text-decoration:none;font-weight:700;font-size:0.95rem;border-radius:4px;letter-spacing:1px;text-transform:uppercase;transition:background 0.3s,transform 0.2s;white-space:nowrap}.header-cta:hover{background:var(--primary-dark);transform:translateY(-1px)}.breadcrumb{background:white;border-bottom:1px solid #e0e0e0;padding:0.7rem 2rem;font-size:0.95rem;color:var(--gray)}.breadcrumb a{color:var(--secondary);text-decoration:none;font-weight:600}.breadcrumb a:hover{color:var(--primary)}.breadcrumb span{margin:0 0.5rem}.container{max-width:900px;margin:2.5rem auto;padding:0 2rem}.calculator-card{background:white;border-radius:12px;padding:2.5rem;box-shadow:0 10px 40px rgba(0,0,0,0.1);border-top:4px solid var(--primary)}h1{font-family:'Orbitron',sans-serif;color:var(--secondary);font-size:2rem;margin-bottom:0.5rem;text-align:center;line-height:1.3}.description{text-align:center;color:var(--gray);font-size:1.1rem;margin-bottom:2rem}.input-section{background:#f8f9fa;padding:1.5rem;border-radius:8px;margin-bottom:1.5rem}.section-title{font-family:'Orbitron',sans-serif;color:var(--secondary);font-size:1.05rem;margin-bottom:1rem}.input-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}.input-row.single{grid-template-columns:1fr}.input-group{margin-bottom:0.8rem}label{display:block;font-weight:600;color:var(--dark);margin-bottom:0.4rem;font-size:1.05rem}input,select{width:100%;padding:0.9rem;border:2px solid #e0e0e0;border-radius:6px;font-size:1.1rem;font-family:'Rajdhani',sans-serif;transition:border-color 0.3s;background:white;color:var(--dark)}input:focus,select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(255,107,53,0.1)}.button-group{display:flex;gap:1rem;margin-top:2rem}.btn{flex:1;padding:1.2rem;border:none;border-radius:6px;font-size:1.2rem;font-weight:700;cursor:pointer;transition:all 0.3s;font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase}.btn-calculate{background:var(--secondary);color:white}.btn-calculate:hover{background:#003366;transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,78,137,0.3)}.btn-reset{background:var(--gray);color:white}.btn-reset:hover{background:#556070;transform:translateY(-2px)}.error-msg{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;padding:1rem 1.2rem;border-radius:6px;margin-top:1rem;font-weight:600;font-size:1rem;display:none}.error-msg.show{display:block;animation:fadeDown 0.3s ease}.results{margin-top:2rem;display:none}.results.show{display:block;animation:fadeDown 0.35s ease}@keyframes fadeDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}.result-grid{display:grid;grid-template-columns:repeat(2,1fr));gap:1rem;margin-bottom:1.5rem}.result-box{background:var(--gradient);border-radius:10px;padding:1.5rem;text-align:center;color:white}.result-box.success{background:linear-gradient(135deg,var(--success),#20c997)}.result-box.warning{background:linear-gradient(135deg,var(--warning),#ffb300)}.result-box.danger{background:linear-gradient(135deg,var(--danger),#c82333)}.result-label{font-size:0.9rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;opacity:0.9;margin-bottom:0.5rem}.result-value{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:900;line-height:1}.result-sub{font-size:0.9rem;opacity:0.85;margin-top:0.4rem}.notice{padding:1rem 1.2rem;border-radius:6px;margin-top:1rem;font-weight:600;font-size:1rem}.notice.green{background:#d4edda;color:#155724;border:1px solid #c3e6cb}.notice.yellow{background:#fff3cd;color:#856404;border:1px solid #ffc107}.notice.red{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}.breakdown{background:#f8f9fa;padding:1.5rem;border-radius:8px;margin-bottom:1.5rem}.breakdown h4{font-family:'Orbitron',sans-serif;color:var(--secondary);margin-bottom:1rem;font-size:1rem}.breakdown-item{display:flex;justify-content:space-between;align-items:center;padding:0.8rem;border-bottom:1px solid #dee2e6}.breakdown-item:last-child{border-bottom:none}.breakdown-label{font-weight:600;font-size:1rem}.breakdown-value{color:var(--secondary);font-weight:700;font-size:1rem}footer{background:var(--dark);color:white;padding:4rem 2rem 2rem;margin-top:4rem}.footer-content{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2.5rem;margin-bottom:3rem}.footer-section h3{font-family:'Orbitron',sans-serif;font-size:1.1rem;margin-bottom:1.2rem;color:var(--accent)}.footer-section p,.footer-section a{color:rgba(255,255,255,0.7);line-height:2;text-decoration:none;display:block;transition:color 0.3s;font-size:0.95rem}.footer-section a:hover{color:var(--primary)}.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:2rem;text-align:center;color:rgba(255,255,255,0.5);font-size:0.9rem}.footer-bottom a{color:rgba(255,255,255,0.7);text-decoration:none;margin:0 0.5rem}.footer-bottom a:hover{color:var(--primary)}.page-cta{background:var(--gradient);padding:3.5rem 2rem;text-align:center;margin-top:4rem;position:relative;overflow:hidden}.page-cta::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(90deg,transparent,transparent 2px,rgba(255,255,255,0.03) 2px,rgba(255,255,255,0.03) 4px)}.page-cta h2{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:white;letter-spacing:3px;margin-bottom:1rem;position:relative;z-index:1}.page-cta p{font-size:1.2rem;color:rgba(255,255,255,0.9);max-width:700px;margin:0 auto 2rem;line-height:1.7;position:relative;z-index:1}.page-cta-btns{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}.cta-btn{display:inline-block;padding:1rem 2rem;background:var(--primary);color:white;text-decoration:none;border-radius:6px;font-weight:700;font-size:1.1rem;transition:all 0.3s;letter-spacing:1px;text-transform:uppercase}.cta-btn:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 5px 15px rgba(255,107,53,0.4)}.cta-btn-outline{display:inline-block;padding:1rem 2rem;background:transparent;color:white;text-decoration:none;border-radius:6px;font-weight:700;font-size:1.1rem;transition:all 0.3s;letter-spacing:1px;text-transform:uppercase;border:2px solid rgba(255,255,255,0.7)}.cta-btn-outline:hover{background:rgba(255,255,255,0.15);border-color:white}@media (max-width:768px){.input-row{grid-template-columns:1fr}.container{padding:0 1rem}.calculator-card{padding:1.5rem}h1{font-size:1.5rem}.result-value{font-size:1.5rem}.button-group{flex-direction:column}.header-nav .back-link{display:none}.page-cta h2{font-size:2rem}}.seo-wrap,.faq-wrap,.related-wrap{max-width:900px;margin:0 auto;padding:0 2rem}.seo-wrap{padding-bottom:1rem;margin-top:3rem}.faq-wrap{margin-top:1rem}.related-wrap{margin-top:2rem;padding-bottom:4rem}.seo-card{background:white;border-radius:12px;padding:2rem 2.2rem;box-shadow:0 4px 20px rgba(0,0,0,0.07);border-left:4px solid var(--primary);margin-bottom:0}.seo-card h2{font-family:'Orbitron',sans-serif;color:var(--secondary);font-size:1.4rem;margin-bottom:1rem;line-height:1.3}.seo-card p{color:#4a5568;font-size:1.05rem;line-height:1.8;margin-bottom:0.8rem}.seo-card p:last-child{margin-bottom:0}.faq-wrap > h2,.related-wrap > h2{font-family:'Orbitron',sans-serif;color:var(--secondary);font-size:1.3rem;margin-bottom:1.2rem;padding-bottom:0.6rem;border-bottom:2px solid #f0f0f0}.faq-list{display:flex;flex-direction:column;gap:0.7rem}.faq-item{border:2px solid #e0e0e0;border-radius:10px;overflow:hidden;transition:border-color 0.3s}.faq-item:hover{border-color:#c0c0c0}.faq-q{width:100%;background:white;border:none;padding:1rem 1.3rem;display:flex;justify-content:space-between;align-items:flex-start;cursor:pointer;font-family:'Orbitron',sans-serif;font-size:0.82rem;font-weight:700;color:var(--secondary);text-align:left;gap:1rem;transition:all 0.25s;line-height:1.4}.faq-q span:first-child{flex:1}.faq-q:hover{background:#fff5f1;color:var(--primary)}.faq-q.open{background:var(--primary);color:white}.faq-icon{font-size:1.3rem;font-weight:300;flex-shrink:0;margin-top:0.1rem;width:24px;text-align:center;transition:transform 0.3s;line-height:1}.faq-q.open .faq-icon{transform:rotate(45deg)}.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s;padding:0 1.3rem;background:#fafafa}.faq-a.open{max-height:600px;padding:1.1rem 1.3rem}.faq-a p{color:#4a5568;font-size:1.05rem;line-height:1.8;margin:0}.faq-a a{color:var(--primary);font-weight:700;text-decoration:none}.faq-a a:hover{text-decoration:underline}.related-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0.9rem}.related-card{background:white;border:2px solid #e0e0e0;border-radius:10px;padding:1rem 0.8rem;text-align:center;text-decoration:none;color:var(--dark);transition:all 0.3s;display:flex;flex-direction:column;align-items:center;gap:0.3rem}.related-card:hover{border-color:var(--primary);transform:translateY(-3px);box-shadow:0 6px 18px rgba(255,107,53,0.15)}.rc-icon{font-size:1.6rem;line-height:1}.rc-title{font-family:'Orbitron',sans-serif;font-size:0.72rem;color:var(--secondary);font-weight:700;line-height:1.3}.rc-desc{font-size:0.8rem;color:var(--gray);line-height:1.3}@media (max-width:900px){.related-grid{grid-template-columns:repeat(3,1fr)}}@media (max-width:600px){.seo-wrap,.faq-wrap,.related-wrap{padding-left:1rem;padding-right:1rem}.seo-card{padding:1.4rem}.faq-q{font-size:0.78rem;padding:0.9rem 1rem}.related-grid{grid-template-columns:repeat(2,1fr)}.rc-title{font-size:0.68rem}}
+.last-updated-stamp,.data-as-of{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.78rem;font-family:'Orbitron',sans-serif;letter-spacing:0.5px;opacity:0.75;margin-left:0.8rem;vertical-align:middle}
+.last-updated-stamp::before,.data-as-of::before{content:'\1F550';font-size:0.85rem}
+.last-updated-quarter{font-size:0.72rem;font-family:'Orbitron',sans-serif;letter-spacing:1px}
+.rate-freshness-bar{display:flex;align-items:center;justify-content:flex-start;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem}
+.freshness-note{font-size:0.82rem;opacity:0.6;font-style:italic}
+.market-section .last-updated-stamp,.market-section .data-as-of{color:rgba(255,255,255,0.7)}
+.guide-body .last-updated-stamp,.guide-body .data-as-of,.content .last-updated-stamp,.content .data-as-of,.card .last-updated-stamp{color:var(--gray)}
+
+</style>
+</head>
+<body> <header> <div class="header-content"> <a href="index.html" class="logo">First Bridge<span>Dispatch Services</span></a> <div class="header-nav"> <a href="../index.html#calculators" class="back-link">&#8592; All Calculators</a> <a href="../index.html#contact" class="header-cta">Get Dispatched</a> </div> </div> </header> <div class="breadcrumb"> <a href="index.html">Home</a><span>&#8250;</span> <a href="../index.html#calculators">Free Calculators</a><span>&#8250;</span>
+        Rate Per Mile Calculator
+    </div> <div class="container"> <div class="calculator-card"> <h1>&#x1F4B5; Rate Per Mile Calculator</h1> <p class="description">Calculate your trucking rate per mile to evaluate every load before you accept it. Knowing your revenue per mile helps owner operators set profitable minimum rates, compare broker offers against market averages, and ensure every load covers fuel, expenses, and leaves a healthy profit margin. Use this free rate per mile calculator before accepting any load.</p> <div class="input-section"> <h3 class="section-title">Load Details</h3> <div class="input-row"> <div class="input-group"> <label for="loadPay">Total Load Pay ($) *</label> <input type="number" id="loadPay" placeholder="3500" min="0" step="0.01"> </div> <div class="input-group"> <label for="totalMiles">Total Miles *</label> <input type="number" id="totalMiles" placeholder="1200" min="1" step="1"> </div> </div> </div> <div class="button-group"> <button class="btn btn-calculate" onclick="window.calculate()">Calculate Rate</button> <button class="btn btn-reset" onclick="window.resetCalc()">Reset</button> </div> <div id="errorMsg" class="error-msg">Please fill in all required fields marked with *.</div> <div id="results" class="results"></div> </div> </div> <!-- SEO Content --> <div class="seo-wrap"> <div class="seo-card"> <h2>Why Rate Per Mile Matters for Owner Operators</h2> <p>Rate per mile is the most fundamental metric in trucking. It tells you exactly how much gross revenue you earn for every mile your truck travels loaded. A high rate per mile load is not always the most profitable if the miles are short and deadhead is high, but it remains the fastest way to evaluate and compare load offers.</p><p>Most owner operators targeting sustainable profitability aim for <strong>$2.00 to $3.50+ per mile</strong> depending on equipment type, lane, and market conditions. Reefer and flatbed typically command higher rates than dry van due to specialized equipment and handling requirements.</p> </div> </div> <!-- FAQ Section --> <div class="faq-wrap"> <h2>Frequently Asked Questions</h2> <div class="faq-list"> <div class="faq-item"> <button class="faq-q" onclick="window.toggleFaq(this)" aria-expanded="false"> <span>How do I calculate rate per mile in trucking?</span><span class="faq-icon">&#43;</span> </button> <div class="faq-a"><p>Divide the total load pay by the total miles. For example, a $2,400 load over 1,000 miles equals $2.40 per mile. Use this calculator to get instant results and compare against market averages using our <a href="load-profit-calculator.html">Load Profit Calculator</a>.</p></div> </div> <div class="faq-item"> <button class="faq-q" onclick="window.toggleFaq(this)" aria-expanded="false"> <span>What is a good rate per mile for a dry van?</span><span class="faq-icon">&#43;</span> </button> <div class="faq-a"><p>In 2026, a competitive dry van rate ranges from $2.10 to $2.80 per mile depending on the lane, season, and market demand. Rates above $2.50 per mile are generally considered strong for dry van. Check our <a href="freight-rate-checker.html">Freight Rate Checker</a> for lane-specific estimates.</p></div> </div> <div class="faq-item"> <button class="faq-q" onclick="window.toggleFaq(this)" aria-expanded="false"> <span>How can I increase my rate per mile?</span><span class="faq-icon">&#43;</span> </button> <div class="faq-a"><p>Work with a professional dispatcher who negotiates full-time, specialize in higher-paying equipment like reefer or flatbed, build direct shipper relationships, and avoid consistently accepting the first offer from brokers. First Bridge dispatchers regularly negotiate 15-25% above posted load board rates.</p></div> </div> <div class="faq-item"> <button class="faq-q" onclick="window.toggleFaq(this)" aria-expanded="false"> <span>Does deadhead affect my effective rate per mile?</span><span class="faq-icon">&#43;</span> </button> <div class="faq-a"><p>Yes. If you drive 200 empty miles to pick up a 600-mile load at $2.50/mile, your effective rate across all 800 miles drops to $1.87/mile. Always factor deadhead into your rate calculations using our <a href="deadhead-cost.html">Deadhead Cost Calculator</a>.</p></div> </div> <div class="faq-item"> <button class="faq-q" onclick="window.toggleFaq(this)" aria-expanded="false"> <span>What is the difference between rate per mile and cost per mile?</span><span class="faq-icon">&#43;</span> </button> <div class="faq-a"><p>Rate per mile is what you earn. Cost per mile is what you spend to operate your truck. Your profit per mile is the difference. To stay profitable, your rate per mile must consistently exceed your cost per mile. Calculate yours with our <a href="cost-per-mile.html">Cost Per Mile Calculator</a>.</p></div> </div> </div> </div> <!-- Related Free Tools --> <div class="related-wrap"> <h2>Related Free Tools</h2> <div class="related-grid"> <a href="load-profit-calculator.html" class="related-card"> <div class="rc-icon">&#x1F4CA;</div> <div class="rc-title">Load Profit Calculator</div> <div class="rc-desc">Full load profitability breakdown</div> </a> <a href="cost-per-mile.html" class="related-card"> <div class="rc-icon">&#x1F50D;</div> <div class="rc-title">Cost Per Mile</div> <div class="rc-desc">Know your true operating cost</div> </a> <a href="break-even.html" class="related-card"> <div class="rc-icon">&#x2696;</div> <div class="rc-title">Break Even Rate</div> <div class="rc-desc">Minimum rate to cover all expenses</div> </a> <a href="freight-rate-checker.html" class="related-card"> <div class="rc-icon">&#x1F4CD;</div> <div class="rc-title">Freight Rate Checker</div> <div class="rc-desc">Estimate market rates by lane</div> </a> <a href="dispatch-fee.html" class="related-card"> <div class="rc-icon">&#x1F4CB;</div> <div class="rc-title">Dispatch Fee Calculator</div> <div class="rc-desc">Calculate your dispatcher fee</div> </a> </div> </div> <div class="page-cta"> <h2>Let First Bridge Maximize Your Revenue</h2> <p>Our professional dispatch team secures high-paying loads, negotiates better rates, and handles paperwork so you can focus on driving.</p> <div class="page-cta-btns"> <a href="../index.html#contact" class="cta-btn">Start Dispatch Service</a> <a href="../index.html#contact" class="cta-btn-outline">Speak With a Dispatcher</a> </div> </div> <footer style="content-visibility:auto;contain-intrinsic-size:0 200px;"> <div class="footer-content"> <div class="footer-section"> <h3>First Bridge Dispatch</h3> <p>Your trusted partner in truck dispatching across the United States. Building bridges to success, one load at a time.</p> </div> <div class="footer-section"> <h3>Quick Links</h3> <a href="index.html">Home</a> <a href="../index.html#services">Services</a> <a href="../index.html#why-us">Why Choose Us</a> <a href="../index.html#calculators">Free Calculators</a> <a href="../index.html#contact">Contact</a> </div> <div class="footer-section"> <h3>Calculators</h3> <a href="rate-per-mile.html">Rate Per Mile</a> <a href="load-profit-calculator.html">Load Profit</a> <a href="fuel-cost.html">Fuel Cost</a> <a href="dispatch-fee.html">Dispatch Fee</a> <a href="deadhead-cost.html">Deadhead Cost</a> <a href="break-even.html">Break Even Rate</a> <a href="truck-payment.html">Truck Payment</a> <a href="freight-weight.html">Freight Weight</a> <a href="ifta-tax.html">IFTA Tax</a> <a href="hos-calculator.html">HOS Driving Time</a> <a href="trip-profit.html">Trip Profit</a> <a href="cost-per-mile.html">Cost Per Mile</a> <a href="weekly-revenue.html">Weekly Revenue</a> <a href="loan-affordability.html">Loan Affordability</a> </div> <div class="footer-section"> <h3>Contact Info</h3> <p>&#128231; Email: info@firstbridge.us</p> <p>&#127760; Available 24/7</p> <p>&#128205; Serving All 48 States</p> </div> </div> <div class="footer-bottom"> <p>&copy; 2026 First Bridge Dispatch Services. All rights reserved.</p> <p style="margin-top:0.5rem;"> <a href="privacy-policy.html">Privacy</a> |
+                <a href="terms-and-conditions.html">Terms</a> |
+                <a href="sms-disclaimer.html">SMS Policy</a> </p> </div> </footer> <script>
+function calculate() {
+var pay = parseFloat(document.getElementById('loadPay').value);
+var miles = parseFloat(document.getElementById('totalMiles').value);
+var err = document.getElementById('errorMsg');
+if (!pay || !miles || miles <= 0) { err.classList.add('show'); return; }
+err.classList.remove('show');
+var rpm = pay / miles;
+var tier = rpm >= 2.50 ? 'success' : rpm >= 1.80 ? 'warning' : 'danger';
+var tierMsg = rpm >= 2.50 ? 'Excellent rate!' : rpm >= 1.80 ? 'Acceptable rate' : 'Low rate - consider negotiating';
+document.getElementById('results').innerHTML = `
+<div class="result-grid">
+<div class="result-box ${tier}">
+<div class="result-label">Rate Per Mile</div>
+<div class="result-value">$${rpm.toFixed(3)}</div>
+<div class="result-sub">${tierMsg}</div>
+</div>
+<div class="result-box">
+<div class="result-label">Total Load Pay</div>
+<div class="result-value">$${pay.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}</div>
+<div class="result-sub">Gross Revenue</div>
+</div>
+<div class="result-box">
+<div class="result-label">Total Miles</div>
+<div class="result-value">${miles.toLocaleString()}</div>
+<div class="result-sub">Miles Driven</div>
+</div>
+</div>
+<div class="notice ${tier === 'success' ? 'green' : tier === 'warning' ? 'yellow' : 'red'}">
+<strong>Industry Benchmark:</strong> Aim for $2.00+ per mile. At $${rpm.toFixed(3)}/mile over ${miles.toLocaleString()} miles your gross is $${pay.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}.
+</div>`;
+document.getElementById('results').classList.add('show');
+document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function resetCalc() {
+document.getElementById('loadPay').value = '';
+document.getElementById('totalMiles').value = '';
+document.getElementById('results').classList.remove('show');
+document.getElementById('errorMsg').classList.remove('show');
+}
+function toggleFaq(btn) {
+var answer = btn.nextElementSibling;
+var isOpen = btn.classList.contains('open');
+document.querySelectorAll('.faq-q').forEach(function(q) {
+q.classList.remove('open');
+q.nextElementSibling.classList.remove('open');
+});
+if (!isOpen) { btn.classList.add('open'); answer.classList.add('open'); }
+}
+
+// Last Updated timestamps
+(function() {
+  var now = new Date();
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var quarters = ['Q1','Q1','Q1','Q2','Q2','Q2','Q3','Q3','Q3','Q4','Q4','Q4'];
+  var stamp = months[now.getMonth()] + ' ' + now.getFullYear();
+  var quarter = quarters[now.getMonth()] + ' ' + now.getFullYear();
+  document.querySelectorAll('.last-updated-stamp').forEach(function(el) {
+    el.textContent = 'Last updated: ' + stamp;
+  });
+  document.querySelectorAll('.last-updated-quarter').forEach(function(el) {
+    el.textContent = quarter + ' Market Data';
+  });
+  document.querySelectorAll('.data-as-of').forEach(function(el) {
+    el.textContent = 'Data as of ' + stamp;
+  });
+})();
+</script>
+
+<!-- First Bridge AI Chatbot Widget -->
+<script>
+// ============================================================
+// First Bridge Dispatch — AI Chatbot Widget
+// Powered by Claude AI via Cloudflare Worker proxy
+// ============================================================
+
+(function() {
+'use strict';
+
+var WORKER_URL = 'https://firstbridge-proxy.mwaqasnazar.workers.dev';
+var NOTIFY_EMAIL = 'info@firstbridge.us';
+var COMPANY_NAME = 'First Bridge Dispatch Services';
+
+// ── SYSTEM PROMPT (Knowledge Base + Sales Guidance) ──────────
+var SYSTEM_PROMPT = `You are Alex, a professional dispatch coordinator for First Bridge Dispatch Services. You are helpful, knowledgeable, and focused on helping owner operators maximize their trucking revenue.
+
+## COMPANY INFORMATION
+- Company: First Bridge Dispatch Services
+- Website: firstbridge.us
+- Email: info@firstbridge.us
+- Services: Professional truck dispatching for owner operators and small fleets across all 48 states
+
+## SERVICES WE OFFER
+1. **Load Finding** — Access to premium load boards (DAT, Truckstop, etc.) and direct shipper relationships. We negotiate best rates and find consistent, profitable loads.
+2. **Rate Negotiation** — We fight for the best rates per mile on every load. Our drivers average 15–25% higher revenue compared to self-dispatching.
+3. **Route Planning** — Strategic routing to minimize deadhead miles and maximize loaded miles.
+4. **Carrier Setup** — Complete assistance with MC authority, insurance, IFTA, BOC-3, and all registrations.
+5. **Broker Communication** — We handle all broker relationships, paperwork, and load confirmations.
+6. **Billing Support** — Rate confirmations, invoicing assistance, and factoring company setup.
+7. **24/7 Support** — Dispatchers available around the clock for load issues and driver support.
+
+## EQUIPMENT TYPES WE DISPATCH
+- Dry Van (53 ft) — General freight, retail, manufacturing
+- Reefer (53 ft) — Perishables, produce, pharmaceuticals
+- Flatbed (48/53 ft) — Construction, steel, machinery
+- Step Deck — Oversized freight, heavy equipment
+- Power Only — Pulling shipper-owned trailers
+- Hotshot — Expedited loads, oilfield, small freight
+
+## PRICING
+- Dispatch fee: typically 6% of gross load revenue
+- No hidden fees, no setup fees
+- Week-to-week commitment — no long-term contract required
+- Example: $7,000 weekly gross → $420 dispatch fee → ~$4,480 estimated net after fuel
+
+## FREE TOOLS AVAILABLE
+- Rate Per Mile Calculator
+- Load Profit Calculator
+- Fuel Cost Calculator
+- Cost Per Mile Calculator
+- Break-Even Calculator
+- IFTA Tax Calculator
+- HOS Calculator
+- Truck Payment Calculator
+- And 12+ more at firstbridge.us/free-tools.html
+
+## KEY SELLING POINTS
+- 500+ active drivers nationwide
+- 98% customer satisfaction rate
+- $2.5M+ revenue dispatched per month
+- Average 15–25% revenue increase for new drivers
+- All 48 states coverage
+- All major equipment types
+- No long-term contracts
+
+## HOW TO GET STARTED
+1. Fill out the contact form at firstbridge.us
+2. Speak with a dispatcher within 24 hours
+3. Sign dispatch agreement
+4. Start getting loads within 48 hours
+
+## SALES APPROACH GUIDELINES
+- Be friendly and conversational, not pushy
+- Ask questions to understand their equipment type, home state, and experience level
+- Highlight the revenue increase potential based on their equipment
+- Address concerns about dispatch fees by showing the net benefit
+- If they seem interested, guide them to fill out the contact form
+- For pricing questions, explain the 6% model and give a real example
+- If they ask about competitors, focus on our strengths rather than criticizing others
+- Always offer to answer follow-up questions
+
+## WHAT YOU SHOULD NOT DO
+- Never make specific guarantees about exact earnings
+- Never promise specific load availability in specific lanes
+- Never discuss competitor pricing
+- If asked about something you don't know, say you'll have a dispatcher follow up
+- Never share personal information about other drivers
+
+## RESPONSE STYLE
+- Keep responses concise — 2–4 sentences max unless detailed explanation needed
+- Use emojis sparingly but naturally 🚛
+- Be direct and confident
+- Always end with either a question to keep conversation going OR a call to action
+- If visitor seems ready, push them toward the contact form
+
+Remember: Your goal is to help the visitor understand the value of professional dispatching and guide them toward contacting First Bridge Dispatch Services.`;
+
+// ── ADMIN INSTRUCTIONS (editable without code changes) ──────
+var ADMIN_INSTRUCTIONS = localStorage.getItem('fb_admin_instructions') || '';
+
+// ── STATE ──────────────────────────────────────────────────
+var chatHistory = [];
+var isOpen = false;
+var isTyping = false;
+var sessionStartTime = Date.now();
+var visitorName = '';
+var transcriptSent = false;
+
+// ── INJECT CSS ─────────────────────────────────────────────
+var css = `
+#fb-chat-widget * { box-sizing: border-box; font-family: 'Rajdhani', 'Segoe UI', sans-serif; }
+#fb-chat-btn {
+  position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+  width: 62px; height: 62px; border-radius: 50%;
+  background: linear-gradient(135deg, #FF6B35, #D9542A);
+  border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(255,107,53,0.5);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fb-pulse 2.5s infinite;
+}
+#fb-chat-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(255,107,53,0.7); }
+#fb-chat-btn svg { width: 28px; height: 28px; fill: white; }
+#fb-chat-btn .fb-close-icon { display: none; }
+#fb-chat-btn.open .fb-chat-icon { display: none; }
+#fb-chat-btn.open .fb-close-icon { display: block; }
+#fb-unread-badge {
+  position: absolute; top: -4px; right: -4px;
+  background: #004E89; color: white; border-radius: 50%;
+  width: 20px; height: 20px; font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid white; display: none;
+}
+@keyframes fb-pulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(255,107,53,0.5); }
+  50% { box-shadow: 0 4px 30px rgba(255,107,53,0.8); }
+}
+#fb-chat-window {
+  position: fixed; bottom: 100px; right: 24px; z-index: 9998;
+  width: 360px; height: 540px; border-radius: 16px;
+  background: white; box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  display: flex; flex-direction: column; overflow: hidden;
+  transform: scale(0.8) translateY(20px); opacity: 0;
+  transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  pointer-events: none;
+}
+#fb-chat-window.open {
+  transform: scale(1) translateY(0); opacity: 1; pointer-events: all;
+}
+#fb-chat-header {
+  background: linear-gradient(135deg, #004E89, #003366);
+  padding: 14px 16px; display: flex; align-items: center; gap: 10px;
+  border-bottom: 3px solid #FF6B35;
+}
+#fb-chat-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, #FF6B35, #D9542A);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0; position: relative;
+}
+#fb-online-dot {
+  width: 10px; height: 10px; background: #4ade80; border-radius: 50%;
+  border: 2px solid white; position: absolute; bottom: 1px; right: 1px;
+}
+#fb-chat-info { flex: 1; }
+#fb-chat-name { color: white; font-weight: 700; font-size: 0.95rem; letter-spacing: 0.3px; }
+#fb-chat-status { color: rgba(255,255,255,0.65); font-size: 0.75rem; }
+#fb-chat-actions { display: flex; gap: 6px; }
+#fb-admin-btn, #fb-minimize-btn {
+  background: rgba(255,255,255,0.15); border: none; border-radius: 6px;
+  padding: 4px 8px; cursor: pointer; color: white; font-size: 0.7rem;
+  font-family: 'Rajdhani', sans-serif; font-weight: 600; letter-spacing: 0.5px;
+  transition: background 0.2s;
+}
+#fb-admin-btn:hover, #fb-minimize-btn:hover { background: rgba(255,255,255,0.25); }
+#fb-messages {
+  flex: 1; overflow-y: auto; padding: 14px;
+  display: flex; flex-direction: column; gap: 10px;
+  scroll-behavior: smooth;
+}
+#fb-messages::-webkit-scrollbar { width: 4px; }
+#fb-messages::-webkit-scrollbar-thumb { background: #e0e0e0; border-radius: 4px; }
+.fb-msg {
+  max-width: 82%; word-wrap: break-word; line-height: 1.5;
+  font-size: 0.92rem; animation: fb-msgIn 0.25s ease-out;
+}
+@keyframes fb-msgIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fb-msg.bot {
+  align-self: flex-start; background: #f0f4f8;
+  color: #1a202c; border-radius: 4px 14px 14px 14px;
+  padding: 10px 13px;
+}
+.fb-msg.user {
+  align-self: flex-end; background: linear-gradient(135deg, #FF6B35, #D9542A);
+  color: white; border-radius: 14px 4px 14px 14px;
+  padding: 10px 13px;
+}
+.fb-msg.system {
+  align-self: center; background: rgba(0,78,137,0.08);
+  color: #004E89; border-radius: 20px; padding: 5px 12px;
+  font-size: 0.75rem; font-weight: 600; letter-spacing: 0.3px;
+}
+.fb-typing {
+  align-self: flex-start; background: #f0f4f8;
+  border-radius: 4px 14px 14px 14px; padding: 12px 16px;
+  display: flex; gap: 4px; align-items: center;
+}
+.fb-typing span {
+  width: 7px; height: 7px; background: #9ca3af; border-radius: 50%;
+  animation: fb-bounce 1.2s infinite;
+}
+.fb-typing span:nth-child(2) { animation-delay: 0.2s; }
+.fb-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes fb-bounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); background: #FF6B35; }
+}
+#fb-quick-replies {
+  padding: 6px 14px; display: flex; flex-wrap: wrap; gap: 6px;
+}
+.fb-qr {
+  background: white; border: 1.5px solid #FF6B35; border-radius: 20px;
+  padding: 4px 12px; font-size: 0.78rem; color: #FF6B35; font-weight: 600;
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+  font-family: 'Rajdhani', sans-serif;
+}
+.fb-qr:hover { background: #FF6B35; color: white; }
+#fb-input-area {
+  border-top: 1px solid #f0f0f0; padding: 10px 12px;
+  display: flex; gap: 8px; align-items: flex-end;
+}
+#fb-input {
+  flex: 1; border: 1.5px solid #e0e0e0; border-radius: 20px;
+  padding: 8px 14px; font-size: 0.9rem; outline: none; resize: none;
+  max-height: 80px; font-family: 'Rajdhani', sans-serif; color: #1a202c;
+  transition: border-color 0.2s; line-height: 1.4;
+}
+#fb-input:focus { border-color: #FF6B35; }
+#fb-send-btn {
+  width: 38px; height: 38px; border-radius: 50%; border: none;
+  background: linear-gradient(135deg, #FF6B35, #D9542A); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s, opacity 0.2s; flex-shrink: 0;
+}
+#fb-send-btn:hover { transform: scale(1.1); }
+#fb-send-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+#fb-send-btn svg { width: 16px; height: 16px; fill: white; }
+#fb-powered {
+  text-align: center; padding: 5px; font-size: 0.65rem;
+  color: #bbb; border-top: 1px solid #f5f5f5;
+}
+/* Admin Panel */
+#fb-admin-panel {
+  position: absolute; inset: 0; background: white; z-index: 10;
+  display: none; flex-direction: column;
+}
+#fb-admin-panel.open { display: flex; }
+#fb-admin-header {
+  background: linear-gradient(135deg, #0A0E27, #004E89);
+  padding: 14px 16px; display: flex; align-items: center;
+  justify-content: space-between; border-bottom: 3px solid #FF6B35;
+}
+#fb-admin-header span {
+  color: white; font-weight: 700; font-size: 0.9rem;
+  font-family: 'Orbitron', sans-serif; letter-spacing: 0.5px;
+}
+#fb-admin-close {
+  background: rgba(255,255,255,0.15); border: none; border-radius: 6px;
+  padding: 4px 10px; color: white; cursor: pointer; font-size: 0.75rem;
+  font-family: 'Rajdhani', sans-serif; font-weight: 600;
+}
+#fb-admin-body { flex: 1; padding: 16px; overflow-y: auto; }
+#fb-admin-body label {
+  display: block; font-weight: 700; color: #004E89; margin-bottom: 6px;
+  font-size: 0.85rem; letter-spacing: 0.3px;
+}
+#fb-admin-instructions {
+  width: 100%; height: 160px; border: 1.5px solid #e0e0e0;
+  border-radius: 8px; padding: 10px; font-size: 0.85rem; resize: vertical;
+  font-family: 'Rajdhani', sans-serif; color: #1a202c; outline: none;
+  transition: border-color 0.2s;
+}
+#fb-admin-instructions:focus { border-color: #FF6B35; }
+.fb-admin-hint {
+  font-size: 0.75rem; color: #697A8F; margin-top: 6px; line-height: 1.5;
+}
+#fb-admin-save {
+  width: 100%; padding: 10px; background: linear-gradient(135deg, #FF6B35, #D9542A);
+  color: white; border: none; border-radius: 8px; cursor: pointer;
+  font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 0.95rem;
+  text-transform: uppercase; letter-spacing: 1px; margin-top: 12px;
+  transition: opacity 0.2s;
+}
+#fb-admin-save:hover { opacity: 0.9; }
+.fb-admin-section { margin-top: 16px; padding-top: 16px; border-top: 1px solid #f0f0f0; }
+.fb-admin-section h4 {
+  font-family: 'Orbitron', sans-serif; font-size: 0.75rem;
+  color: #004E89; letter-spacing: 1px; margin-bottom: 8px;
+}
+.fb-stat-row {
+  display: flex; justify-content: space-between;
+  padding: 5px 0; font-size: 0.82rem; color: #4a5568;
+  border-bottom: 1px solid #f5f5f5;
+}
+.fb-stat-val { font-weight: 700; color: #FF6B35; }
+/* Mobile */
+@media (max-width: 480px) {
+  #fb-chat-window { width: calc(100vw - 24px); right: 12px; bottom: 90px; height: 500px; }
+  #fb-chat-btn { bottom: 16px; right: 16px; }
+}
+`;
+
+var styleEl = document.createElement('style');
+styleEl.textContent = css;
+document.head.appendChild(styleEl);
+
+// ── BUILD HTML ─────────────────────────────────────────────
+var widget = document.createElement('div');
+widget.id = 'fb-chat-widget';
+widget.innerHTML = `
+<!-- Toggle Button -->
+<button id="fb-chat-btn" aria-label="Open chat">
+  <span id="fb-unread-badge">1</span>
+  <svg class="fb-chat-icon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+  <svg class="fb-close-icon" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+</button>
+
+<!-- Chat Window -->
+<div id="fb-chat-window" role="dialog" aria-label="First Bridge Chat">
+
+  <!-- Admin Panel (hidden by default) -->
+  <div id="fb-admin-panel">
+    <div id="fb-admin-header">
+      <span>⚙️ ADMIN PANEL</span>
+      <button id="fb-admin-close">Close</button>
+    </div>
+    <div id="fb-admin-body">
+      <label>Custom Instructions for Alex</label>
+      <textarea id="fb-admin-instructions" placeholder="e.g. Always mention we have a special promotion this week. Push drivers toward flatbed loads. Ask every visitor if they have their MC number ready.">${ADMIN_INSTRUCTIONS}</textarea>
+      <p class="fb-admin-hint">These instructions are added to Alex's behavior immediately. Use this to update promotions, seasonal focus, talking points, or anything you want Alex to say or avoid.</p>
+      <button id="fb-admin-save">Save Instructions</button>
+      <div class="fb-admin-section">
+        <h4>SESSION STATS</h4>
+        <div class="fb-stat-row"><span>Messages today</span><span class="fb-stat-val" id="fb-stat-msgs">0</span></div>
+        <div class="fb-stat-row"><span>Session started</span><span class="fb-stat-val" id="fb-stat-time">—</span></div>
+        <div class="fb-stat-row"><span>Visitor name</span><span class="fb-stat-val" id="fb-stat-name">Unknown</span></div>
+      </div>
+      <div class="fb-admin-section">
+        <h4>QUICK ACTIONS</h4>
+        <button id="fb-admin-transcript" style="width:100%;padding:8px;background:#004E89;color:white;border:none;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.85rem;margin-top:4px;">📧 Email Transcript Now</button>
+        <button id="fb-admin-reset" style="width:100%;padding:8px;background:#f0f4f8;color:#697A8F;border:1px solid #e0e0e0;border-radius:6px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-weight:700;font-size:0.85rem;margin-top:6px;">🔄 Reset Chat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div id="fb-chat-header">
+    <div id="fb-chat-avatar">🚛<div id="fb-online-dot"></div></div>
+    <div id="fb-chat-info">
+      <div id="fb-chat-name">Alex — First Bridge</div>
+      <div id="fb-chat-status">● Online · Dispatch Coordinator</div>
+    </div>
+    <div id="fb-chat-actions">
+      <button id="fb-admin-btn" title="Admin Panel">⚙️</button>
+      <button id="fb-minimize-btn">—</button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div id="fb-messages"></div>
+
+  <!-- Quick Replies -->
+  <div id="fb-quick-replies"></div>
+
+  <!-- Input -->
+  <div id="fb-input-area">
+    <textarea id="fb-input" placeholder="Ask about dispatch services..." rows="1"></textarea>
+    <button id="fb-send-btn" aria-label="Send">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+  <div id="fb-powered">Powered by First Bridge AI · <a href="privacy-policy.html" style="color:#bbb;">Privacy</a></div>
+</div>
+`;
+document.body.appendChild(widget);
+
+// ── ELEMENTS ────────────────────────────────────────────────
+var btn        = document.getElementById('fb-chat-btn');
+var win        = document.getElementById('fb-chat-window');
+var messages   = document.getElementById('fb-messages');
+var input      = document.getElementById('fb-input');
+var sendBtn    = document.getElementById('fb-send-btn');
+var qrDiv      = document.getElementById('fb-quick-replies');
+var adminPanel = document.getElementById('fb-admin-panel');
+var adminBtn   = document.getElementById('fb-admin-btn');
+var adminClose = document.getElementById('fb-admin-close');
+var adminSave  = document.getElementById('fb-admin-save');
+var adminInstr = document.getElementById('fb-admin-instructions');
+var adminTranscript = document.getElementById('fb-admin-transcript');
+var adminReset = document.getElementById('fb-admin-reset');
+var badge      = document.getElementById('fb-unread-badge');
+var minimizeBtn = document.getElementById('fb-minimize-btn');
+
+// ── QUICK REPLIES ────────────────────────────────────────────
+var quickReplies = [
+  'How does dispatch work?',
+  'What\'s your fee?',
+  'Equipment types',
+  'How to get started?',
+  'Free tools'
+];
+
+function showQuickReplies(replies) {
+  qrDiv.innerHTML = '';
+  (replies || quickReplies).forEach(function(r) {
+    var btn2 = document.createElement('button');
+    btn2.className = 'fb-qr';
+    btn2.textContent = r;
+    btn2.onclick = function() { sendMessage(r); qrDiv.innerHTML = ''; };
+    qrDiv.appendChild(btn2);
+  });
+}
+
+// ── ADD MESSAGE ──────────────────────────────────────────────
+function addMessage(text, role) {
+  var el = document.createElement('div');
+  el.className = 'fb-msg ' + role;
+  el.textContent = text;
+  messages.appendChild(el);
+  messages.scrollTop = messages.scrollHeight;
+
+  if (role === 'user') {
+    // Try to extract visitor name
+    var nameMatch = text.match(/(?:I'm|I am|my name is|this is|call me)\s+([A-Z][a-z]+)/i);
+    if (nameMatch) {
+      visitorName = nameMatch[1];
+      document.getElementById('fb-stat-name').textContent = visitorName;
+    }
+  }
+  return el;
+}
+
+function addSystemMsg(text) {
+  var el = document.createElement('div');
+  el.className = 'fb-msg system';
+  el.textContent = text;
+  messages.appendChild(el);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function showTyping() {
+  var el = document.createElement('div');
+  el.className = 'fb-typing';
+  el.id = 'fb-typing-indicator';
+  el.innerHTML = '<span></span><span></span><span></span>';
+  messages.appendChild(el);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function hideTyping() {
+  var el = document.getElementById('fb-typing-indicator');
+  if (el) el.remove();
+}
+
+// ── SEND MESSAGE ──────────────────────────────────────────────
+function sendMessage(text) {
+  text = (text || input.value).trim();
+  if (!text || isTyping) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+  qrDiv.innerHTML = '';
+  addMessage(text, 'user');
+
+  chatHistory.push({ role: 'user', content: text });
+  isTyping = true;
+  sendBtn.disabled = true;
+  showTyping();
+
+  // Update stats
+  var count = parseInt(document.getElementById('fb-stat-msgs').textContent) || 0;
+  document.getElementById('fb-stat-msgs').textContent = count + 1;
+
+  // Build system prompt with admin instructions
+  var fullSystem = SYSTEM_PROMPT;
+  var adminExtra = localStorage.getItem('fb_admin_instructions') || '';
+  if (adminExtra.trim()) {
+    fullSystem += '\n\n## ADDITIONAL INSTRUCTIONS FROM COMPANY ADMIN\n' + adminExtra;
+  }
+
+  // Build backend context (hidden from user)
+  var backendNote = '\n\n[BACKEND NOTE: After your user-facing response, on a new line starting with "BACKEND:" provide a 1-sentence note for the dispatcher about this visitor\'s interest level and what follow-up might be needed. Keep it brief and professional. Format: BACKEND: {your note}]';
+
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      system: fullSystem + backendNote,
+      messages: chatHistory
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    hideTyping();
+    isTyping = false;
+    sendBtn.disabled = false;
+
+    var fullResponse = '';
+    if (data.content && data.content[0] && data.content[0].text) {
+      fullResponse = data.content[0].text;
+    } else {
+      fullResponse = 'Sorry, I had trouble connecting. Please try again or email us at info@firstbridge.us';
+    }
+
+    // Split user response from backend note
+    var parts = fullResponse.split(/\nBACKEND:/i);
+    var userResponse = parts[0].trim();
+    var backendInfo = parts[1] ? parts[1].trim() : '';
+
+    addMessage(userResponse, 'bot');
+    chatHistory.push({ role: 'assistant', content: userResponse });
+
+    // Store backend note internally
+    if (backendInfo) {
+      chatHistory.push({ role: 'system', content: '[BACKEND] ' + backendInfo });
+    }
+
+    // Show contextual quick replies after first response
+    if (chatHistory.length === 2) {
+      showQuickReplies(['Tell me about pricing', 'What equipment do you dispatch?', 'How fast can I start?', 'Do I need a contract?']);
+    }
+
+    // Auto-send transcript after 8 messages
+    if (chatHistory.length >= 16 && !transcriptSent) {
+      sendTranscript(false);
+    }
+  })
+  .catch(function() {
+    hideTyping();
+    isTyping = false;
+    sendBtn.disabled = false;
+    addMessage('Connection issue. Please email us directly at info@firstbridge.us or refresh the page.', 'bot');
+  });
+}
+
+// ── SEND TRANSCRIPT ──────────────────────────────────────────
+function sendTranscript(isManual) {
+  if (chatHistory.length < 2) {
+    if (isManual) alert('No conversation to send yet.');
+    return;
+  }
+
+  var transcript = '=== FIRST BRIDGE CHAT TRANSCRIPT ===\n';
+  transcript += 'Date: ' + new Date().toLocaleString() + '\n';
+  transcript += 'Visitor: ' + (visitorName || 'Unknown') + '\n';
+  transcript += 'Page: ' + window.location.href + '\n';
+  transcript += 'Duration: ' + Math.round((Date.now() - sessionStartTime) / 60000) + ' minutes\n';
+  transcript += '=====================================\n\n';
+
+  var backendNotes = [];
+  chatHistory.forEach(function(msg) {
+    if (msg.role === 'system' && msg.content.startsWith('[BACKEND]')) {
+      backendNotes.push(msg.content.replace('[BACKEND] ', ''));
+    } else if (msg.role === 'user') {
+      transcript += 'VISITOR: ' + msg.content + '\n\n';
+    } else if (msg.role === 'assistant') {
+      transcript += 'ALEX: ' + msg.content + '\n\n';
+    }
+  });
+
+  if (backendNotes.length > 0) {
+    transcript += '\n=== DISPATCHER NOTES ===\n';
+    backendNotes.forEach(function(note, i) {
+      transcript += (i+1) + '. ' + note + '\n';
+    });
+  }
+
+  // Send via Cloudflare Worker
+  fetch(WORKER_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      system: 'You are an email formatter. Format the following chat transcript as a clean HTML email and respond with ONLY the HTML body content (no subject line, just the body HTML). Use a professional clean design.',
+      messages: [{ role: 'user', content: 'Format this transcript as HTML email:\n\n' + transcript }]
+    })
+  })
+  .then(function(r) { return r.json(); })
+  .then(function(data) {
+    var htmlBody = data.content && data.content[0] ? data.content[0].text : '<pre>' + transcript + '</pre>';
+
+    // Send via Google Apps Script if configured
+    var appsScriptUrl = window.FB_APPS_SCRIPT_URL || '';
+    if (appsScriptUrl) {
+      fetch(appsScriptUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({
+          source: 'chatbot-transcript',
+          visitorName: visitorName || 'Unknown',
+          transcript: transcript,
+          htmlTranscript: htmlBody,
+          page: window.location.href
+        })
+      });
+    }
+
+    transcriptSent = true;
+    if (isManual) {
+      addSystemMsg('✅ Transcript sent to ' + NOTIFY_EMAIL);
+    }
+  })
+  .catch(function() {
+    if (isManual) addSystemMsg('⚠️ Could not send transcript. Copy the chat manually.');
+  });
+}
+
+// ── TOGGLE CHAT ────────────────────────────────────────────
+function toggleChat() {
+  isOpen = !isOpen;
+  btn.classList.toggle('open', isOpen);
+  win.classList.toggle('open', isOpen);
+  badge.style.display = 'none';
+
+  if (isOpen && chatHistory.length === 0) {
+    // Welcome message
+    setTimeout(function() {
+      addMessage("Hey there! 👋 I'm Alex, your dispatch coordinator at First Bridge. Whether you're just starting out or looking to increase your revenue per mile — I'm here to help. What can I do for you today?", 'bot');
+      showQuickReplies();
+      document.getElementById('fb-stat-time').textContent = new Date().toLocaleTimeString();
+    }, 300);
+  }
+
+  if (isOpen) input.focus();
+}
+
+// ── EVENTS ──────────────────────────────────────────────────
+btn.addEventListener('click', toggleChat);
+minimizeBtn.addEventListener('click', function() { isOpen = true; toggleChat(); });
+
+adminBtn.addEventListener('click', function() {
+  adminPanel.classList.add('open');
+});
+adminClose.addEventListener('click', function() {
+  adminPanel.classList.remove('open');
+});
+adminSave.addEventListener('click', function() {
+  localStorage.setItem('fb_admin_instructions', adminInstr.value);
+  ADMIN_INSTRUCTIONS = adminInstr.value;
+  adminPanel.classList.remove('open');
+  addSystemMsg('✅ Admin instructions updated');
+});
+adminTranscript.addEventListener('click', function() {
+  sendTranscript(true);
+});
+adminReset.addEventListener('click', function() {
+  chatHistory = [];
+  messages.innerHTML = '';
+  qrDiv.innerHTML = '';
+  transcriptSent = false;
+  visitorName = '';
+  sessionStartTime = Date.now();
+  document.getElementById('fb-stat-msgs').textContent = '0';
+  document.getElementById('fb-stat-name').textContent = 'Unknown';
+  adminPanel.classList.remove('open');
+  addSystemMsg('Chat reset');
+  setTimeout(function() {
+    addMessage("Hey there! 👋 I'm Alex, your dispatch coordinator at First Bridge. How can I help you today?", 'bot');
+    showQuickReplies();
+  }, 300);
+});
+
+sendBtn.addEventListener('click', function() { sendMessage(); });
+input.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+});
+input.addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 80) + 'px';
+});
+
+// Send transcript when user leaves page
+window.addEventListener('beforeunload', function() {
+  if (chatHistory.length >= 4 && !transcriptSent) {
+    sendTranscript(false);
+  }
+});
+
+// Show unread badge after 8 seconds if chat not opened
+setTimeout(function() {
+  if (!isOpen) {
+    badge.style.display = 'flex';
+  }
+}, 8000);
+
+})();
+
+</script>
+
+</body>
+</html>

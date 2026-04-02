@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Your Trucking Company in 7 Days | First Bridge Dispatch</title>
+<meta name="description" content="Get your DOT Number & MC Authority fast. We handle all paperwork — BOC-3, UCR, compliance. 1,000+ truckers registered. Free consultation.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* ── EXACT FIRST BRIDGE STANDARDS (calculator + resource hub) ── */
+:root{
+  --primary:#FF6B35;--primary-dark:#D9542A;--secondary:#004E89;
+  --accent:#FFD23F;--dark:#0A0E27;--light:#F7F9FB;--gray:#697A8F;
+  --gradient:linear-gradient(135deg,#004E89 0%,#003366 100%)
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Rajdhani',sans-serif;background:var(--light);color:var(--dark);line-height:1.6}
+
+/* HEADER — exact calculator standard */
+header{position:sticky;top:0;width:100%;z-index:1000;background:rgba(10,14,39,0.97);backdrop-filter:blur(10px);border-bottom:2px solid var(--primary)}
+.header-content{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem}
+.logo{font-family:'Orbitron',sans-serif;font-size:1.4rem;font-weight:900;color:white;text-decoration:none;letter-spacing:1px;text-transform:uppercase;line-height:1}
+.logo span{color:var(--primary);display:block;font-size:0.7rem;letter-spacing:2px;margin-top:0.2rem;font-weight:700}
+.header-nav{display:flex;align-items:center;gap:1.5rem}
+.back-link{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:600;font-size:1rem;letter-spacing:1px;transition:color 0.3s}
+.back-link:hover{color:var(--primary)}
+.header-cta{padding:0.6rem 1.4rem;background:var(--primary);color:white;text-decoration:none;font-weight:700;font-size:0.95rem;border-radius:4px;letter-spacing:1px;text-transform:uppercase;transition:background 0.3s,transform 0.2s;white-space:nowrap}
+.header-cta:hover{background:var(--primary-dark);transform:translateY(-1px)}
+
+/* BREADCRUMB — exact match */
+.breadcrumb{background:white;border-bottom:1px solid #e0e0e0;padding:0.7rem 2rem;font-size:0.95rem;color:var(--gray)}
+.breadcrumb a{color:var(--secondary);text-decoration:none;font-weight:600}
+.breadcrumb a:hover{color:var(--primary)}
+.breadcrumb span{margin:0 0.5rem}
+
+/* HERO — exact resource hub style */
+.hero{background:var(--gradient);color:white;padding:3.5rem 2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(90deg,transparent,transparent 2px,rgba(255,255,255,0.03) 2px,rgba(255,255,255,0.03) 4px)}
+.hero-inner{max-width:860px;margin:0 auto;position:relative;z-index:1}
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:20px;padding:0.3rem 1rem;font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.9);margin-bottom:1rem;letter-spacing:1px;text-transform:uppercase}
+.hero h1{font-family:'Orbitron',sans-serif;font-size:2rem;margin-bottom:1rem;line-height:1.3}
+.hero p{font-size:1.1rem;opacity:0.9;line-height:1.7;max-width:700px}
+.hero-stats{display:flex;gap:2rem;margin-top:1.5rem;flex-wrap:wrap}
+.hero-stat strong{font-family:'Orbitron',sans-serif;font-size:1.3rem;color:var(--accent);display:block}
+.hero-stat span{font-size:0.85rem;opacity:0.8}
+
+/* MAIN LAYOUT — exact resource hub two-column */
+.layout{max-width:1100px;margin:2.5rem auto;padding:0 1.5rem 4rem;display:grid;grid-template-columns:1fr 300px;gap:2.5rem;align-items:start}
+
+/* MAIN CONTENT CARDS — exact calculator/guide card */
+.guide-card{background:white;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.08);padding:2.5rem;margin-bottom:2rem;border-top:4px solid var(--primary)}
+.guide-card h2{font-family:'Orbitron',sans-serif;color:var(--secondary);font-size:1.05rem;margin:1.5rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:2px solid var(--primary);display:inline-block}
+.guide-card h2:first-child{margin-top:0}
+
+/* FORM — exact calculator input style */
+.input-section{background:#f8f9fa;padding:1.5rem;border-radius:8px;margin-bottom:1.5rem}
+.section-label{font-family:'Orbitron',sans-serif;color:var(--secondary);font-size:0.9rem;margin-bottom:1rem;font-weight:700}
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.input-row.single{grid-template-columns:1fr}
+.input-group{margin-bottom:0.8rem}
+.input-group label{display:block;font-weight:600;color:var(--dark);margin-bottom:0.4rem;font-size:1.05rem}
+.input-group input,.input-group select{width:100%;padding:0.9rem;border:2px solid #e0e0e0;border-radius:6px;font-size:1.1rem;font-family:'Rajdhani',sans-serif;transition:border-color 0.3s;background:white;color:var(--dark)}
+.input-group input:focus,.input-group select:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(255,107,53,0.1)}
+.input-group input::placeholder{color:#aab3c0}
+
+/* RADIO BUTTONS */
+.radio-row{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem}
+.radio-opt input{display:none}
+.radio-lbl{display:block;padding:0.85rem 1rem;border:2px solid #e0e0e0;border-radius:6px;text-align:center;font-size:1.05rem;font-weight:600;color:var(--gray);cursor:pointer;transition:all 0.2s;font-family:'Rajdhani',sans-serif}
+.radio-opt input:checked + .radio-lbl{border-color:var(--primary);background:rgba(255,107,53,0.06);color:var(--primary)}
+
+/* SUBMIT BUTTON — exact calculator btn style */
+.btn-submit{width:100%;padding:1.2rem;background:var(--secondary);color:white;border:none;border-radius:6px;font-size:1.2rem;font-weight:700;cursor:pointer;transition:all 0.3s;font-family:'Rajdhani',sans-serif;letter-spacing:1px;text-transform:uppercase;margin-top:1rem}
+.btn-submit:hover{background:#003366;transform:translateY(-2px);box-shadow:0 5px 15px rgba(0,78,137,0.3)}
+.form-fine{font-size:0.85rem;color:var(--gray);text-align:center;margin-top:0.8rem;line-height:1.5}
+.form-trust-row{display:flex;justify-content:center;gap:1.5rem;margin-top:0.8rem;flex-wrap:wrap}
+.f-trust{font-size:0.85rem;color:var(--gray);font-weight:600}
+
+/* SUCCESS STATE */
+.success-wrap{display:none;background:#d4edda;border:1px solid #c3e6cb;border-radius:8px;padding:2rem;text-align:center;margin-top:1rem}
+.success-wrap .s-icon{font-size:2.5rem;margin-bottom:0.8rem}
+.success-wrap h3{font-family:'Orbitron',sans-serif;font-size:1.2rem;color:#155724;margin-bottom:0.5rem}
+.success-wrap p{font-size:1rem;color:#155724;line-height:1.6;margin-bottom:1rem}
+.success-call{display:inline-block;padding:0.8rem 1.8rem;background:var(--primary);color:white;text-decoration:none;border-radius:6px;font-weight:700;font-size:1rem;text-transform:uppercase;letter-spacing:1px;transition:background 0.3s}
+.success-call:hover{background:var(--primary-dark)}
+
+/* SERVICES LIST */
+.steps{list-style:none;margin:0.5rem 0 1.5rem}
+.steps li{display:flex;gap:1rem;align-items:flex-start;padding:0.9rem 0;border-bottom:1px solid #f0f0f0}
+.steps li:last-child{border-bottom:none}
+.step-num{width:30px;height:30px;background:var(--primary);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:0.8rem;font-weight:700;flex-shrink:0;margin-top:2px}
+.step-content h4{font-family:'Orbitron',sans-serif;color:var(--secondary);font-size:0.88rem;margin-bottom:0.2rem}
+.step-content p{color:#4a5568;font-size:0.97rem;line-height:1.6}
+
+/* TIPS */
+.tips{background:#f8f9fa;border-radius:10px;padding:1.2rem 1.5rem;margin:1rem 0 1.5rem}
+.tip-item{display:flex;gap:0.8rem;align-items:flex-start;padding:0.35rem 0;font-size:0.97rem;color:#4a5568}
+.tip-icon{color:var(--primary);font-size:1.05rem;flex-shrink:0;margin-top:2px}
+
+/* RESULT BOXES — exact calculator style */
+.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-bottom:1.5rem}
+.result-box{background:var(--gradient);border-radius:8px;padding:1.2rem;text-align:center;color:white}
+.result-box.highlight{background:linear-gradient(135deg,var(--primary),var(--primary-dark))}
+.result-label{font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;opacity:0.85;font-family:'Orbitron',sans-serif;margin-bottom:0.4rem}
+.result-value{font-family:'Orbitron',sans-serif;font-size:1.5rem;font-weight:900}
+
+/* CTA CARD — exact guide-cta style */
+.guide-cta{background:var(--gradient);border-radius:12px;padding:2.5rem;text-align:center;margin-top:2rem}
+.guide-cta h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:white;letter-spacing:2px;margin-bottom:0.5rem}
+.guide-cta p{color:rgba(255,255,255,0.88);font-size:1rem;margin-bottom:1.5rem}
+.cta-btns{display:flex;gap:0.9rem;justify-content:center;flex-wrap:wrap}
+.cta-btn-solid{padding:0.75rem 1.5rem;background:var(--primary);color:white;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;text-transform:uppercase;letter-spacing:1px;transition:all 0.3s}
+.cta-btn-solid:hover{background:var(--primary-dark);transform:translateY(-2px)}
+.cta-btn-outline{padding:0.75rem 1.5rem;background:transparent;color:white;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.95rem;text-transform:uppercase;letter-spacing:1px;border:2px solid rgba(255,255,255,0.7);transition:all 0.3s}
+.cta-btn-outline:hover{background:rgba(255,255,255,0.15)}
+
+/* FAQ — exact guide style */
+.faq-list{margin:0.5rem 0 1rem}
+.faq-item{border:1.5px solid #e0e0e0;border-radius:8px;overflow:hidden;margin-bottom:0.6rem}
+.faq-q{width:100%;background:white;border:none;padding:0.95rem 1.1rem;display:flex;justify-content:space-between;align-items:flex-start;cursor:pointer;font-family:'Orbitron',sans-serif;font-size:0.83rem;font-weight:700;color:var(--secondary);text-align:left;gap:0.8rem;transition:all 0.2s;line-height:1.4}
+.faq-q span:first-child{flex:1;min-width:0}
+.faq-q:hover{background:#fff5f1;color:var(--primary)}
+.faq-q.open{background:var(--primary);color:white}
+.faq-icon{font-size:1.2rem;flex-shrink:0;transition:transform 0.3s}
+.faq-q.open .faq-icon{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s;padding:0 1.1rem}
+.faq-a.open{max-height:300px;padding:1rem 1.1rem}
+.faq-a p{color:#4a5568;font-size:0.97rem;line-height:1.8}
+
+/* SIDEBAR — exact resource hub sidebar */
+.sidebar-card{background:white;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);padding:1.5rem;margin-bottom:1.5rem}
+.sidebar-card h3{font-family:'Orbitron',sans-serif;color:var(--secondary);font-size:0.9rem;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid var(--primary)}
+.sidebar-link{display:flex;gap:0.5rem;align-items:center;padding:0.5rem 0;border-bottom:1px solid #f0f0f0;text-decoration:none;color:var(--dark);font-size:0.93rem;font-weight:600;transition:color 0.2s}
+.sidebar-link:last-child{border-bottom:none}
+.sidebar-link:hover{color:var(--primary)}
+.sidebar-link .arr{color:var(--primary);font-size:0.9rem}
+.sidebar-cta{background:var(--gradient);border-radius:12px;padding:1.5rem;text-align:center}
+.sidebar-cta h3{font-family:'Orbitron',sans-serif;color:var(--accent);font-size:0.95rem;margin-bottom:0.8rem}
+.sidebar-cta p{color:rgba(255,255,255,0.85);font-size:0.9rem;line-height:1.6;margin-bottom:1.2rem}
+.sidebar-cta a{display:block;padding:0.7rem;background:var(--primary);color:white;text-decoration:none;border-radius:6px;font-weight:700;font-size:0.9rem;text-transform:uppercase;margin-bottom:0.6rem;transition:background 0.3s}
+.sidebar-cta a:hover{background:var(--primary-dark)}
+.sidebar-cta a.outline{background:transparent;border:2px solid rgba(255,255,255,0.6);margin-bottom:0}
+.sidebar-cta a.outline:hover{background:rgba(255,255,255,0.15)}
+.sidebar-stat{text-align:center;padding:0.8rem 0;border-bottom:1px solid #f0f0f0}
+.sidebar-stat:last-child{border-bottom:none}
+.sidebar-stat strong{font-family:'Orbitron',sans-serif;font-size:1.4rem;color:var(--primary);display:block}
+.sidebar-stat span{font-size:0.85rem;color:var(--gray)}
+
+/* FOOTER — exact standard */
+footer{background:var(--dark);color:white;padding:3rem 2rem 2rem}
+.footer-content{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2.5rem;margin-bottom:2.5rem}
+.footer-section h3{font-family:'Orbitron',sans-serif;font-size:1rem;margin-bottom:1.2rem;color:var(--accent)}
+.footer-section p,.footer-section a{color:rgba(255,255,255,0.7);line-height:2;text-decoration:none;display:block;transition:color 0.3s;font-size:0.9rem}
+.footer-section a:hover{color:var(--primary)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;text-align:center;color:rgba(255,255,255,0.5);font-size:0.85rem}
+
+/* MOBILE — exact calculator breakpoints */
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{order:2}
+}
+@media(max-width:600px){
+  .header-content{padding:1rem 1.2rem}
+  .logo{font-size:1.1rem}
+  .back-link{display:none}
+  .header-cta{font-size:0.8rem;padding:0.5rem 1rem}
+  .hero{padding:2.5rem 1.2rem}
+  .hero h1{font-size:1.5rem}
+  .hero p{font-size:1rem}
+  .hero-stats{gap:1.2rem}
+  .layout{padding:0 1rem 2.5rem;margin-top:1.5rem;gap:1.5rem}
+  .guide-card{padding:1.5rem}
+  .input-row{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
+  .cta-btns{flex-direction:column}
+  .footer-content{grid-template-columns:1fr;gap:1.5rem}
+  .breadcrumb{padding:0.6rem 1.2rem;font-size:0.85rem}
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-content">
+    <a href="index.html" class="logo">First Bridge<span>Dispatch Services</span></a>
+    <div class="header-nav">
+      <a href="index.html" class="back-link">← Back to Home</a>
+      <a href="#dot-form" class="header-cta">Start My DOT Authority</a>
+    </div>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span>›</span>
+  <a href="resource-hub.html">Resources</a><span>›</span>
+  DOT Authority Registration
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🚀 DOT & MC Authority Filing Service</div>
+    <h1>Start Your Trucking Company in 7 Days</h1>
+    <p>Get your DOT Number & MC Authority without the hassle. We handle all the paperwork so you can focus on getting loads and making money. 1,000+ owner-operators registered.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><strong>1,000+</strong><span>Truckers Registered</span></div>
+      <div class="hero-stat"><strong>7 Days</strong><span>Average Setup Time</span></div>
+      <div class="hero-stat"><strong>4.9★</strong><span>Customer Rating</span></div>
+      <div class="hero-stat"><strong>100%</strong><span>Filing Accuracy</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="layout">
+
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+
+    <!-- FORM CARD -->
+    <div class="guide-card" id="dot-form">
+      <h2>Get Your DOT Authority Started</h2>
+      <p style="color:var(--gray);font-size:1rem;margin-bottom:1.5rem;">Fill out the form below — a First Bridge specialist will call you within 15 minutes to walk you through the process.</p>
+
+      <div id="formBody">
+        <div class="input-section">
+          <div class="section-label">Your Contact Information</div>
+          <div class="input-row">
+            <div class="input-group">
+              <label>Full Name *</label>
+              <input type="text" id="fullName" placeholder="John Smith" autocomplete="name">
+            </div>
+            <div class="input-group">
+              <label>Phone Number *</label>
+              <input type="tel" id="phone" placeholder="(555) 000-0000">
+            </div>
+          </div>
+          <div class="input-row single">
+            <div class="input-group">
+              <label>Email Address *</label>
+              <input type="email" id="email" placeholder="john@email.com">
+            </div>
+          </div>
+        </div>
+
+        <div class="input-section">
+          <div class="section-label">Your Trucking Setup</div>
+          <div class="input-row">
+            <div class="input-group">
+              <label>Do You Own a Truck? *</label>
+              <div class="radio-row">
+                <label class="radio-opt"><input type="radio" name="ownTruck" value="Yes"><span class="radio-lbl">🚛 Yes, I Do</span></label>
+                <label class="radio-opt"><input type="radio" name="ownTruck" value="No"><span class="radio-lbl">🔍 Not Yet</span></label>
+              </div>
+            </div>
+            <div class="input-group">
+              <label>Type of Operation</label>
+              <select id="opType">
+                <option value="">— Select One —</option>
+                <option>Owner-Operator (1 truck)</option>
+                <option>Small Fleet (2–5 trucks)</option>
+                <option>Growing Fleet (6+ trucks)</option>
+                <option>Not Sure Yet</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-submit" onclick="submitForm()">🚛 Get My DOT Authority Started</button>
+        <p class="form-fine">By submitting, you agree to be contacted by a First Bridge specialist. No spam, ever.</p>
+        <div class="form-trust-row">
+          <span class="f-trust">🔒 Secure &amp; Private</span>
+          <span class="f-trust">✓ No Hidden Fees</span>
+          <span class="f-trust">⭐ 4.9/5 Rating</span>
+        </div>
+      </div>
+
+      <div class="success-wrap" id="successState">
+        <div class="s-icon">🎉</div>
+        <h3>You're All Set, <span id="successName">Friend</span>!</h3>
+        <p>A First Bridge specialist will call you within <strong>15 minutes</strong> to walk you through the entire setup process.</p>
+        <a href="tel:+18005550000" class="success-call">📞 Or Call Us Right Now</a>
+      </div>
+    </div>
+
+    <!-- SERVICES CARD -->
+    <div class="guide-card">
+      <h2>What We Handle For You</h2>
+      <p style="color:var(--gray);margin-bottom:1.2rem;">Stop wasting time on government forms. We file everything correctly — the first time.</p>
+      <ul class="steps">
+        <li>
+          <div class="step-num">01</div>
+          <div class="step-content"><h4>DOT Number Registration</h4><p>Your USDOT number is your federal trucking license. We register it fast, correctly, and without the headaches of government portals.</p></div>
+        </li>
+        <li>
+          <div class="step-num">02</div>
+          <div class="step-content"><h4>MC Authority Setup</h4><p>Motor Carrier authority lets you haul freight for hire across state lines. We handle the full FMCSA application from start to finish.</p></div>
+        </li>
+        <li>
+          <div class="step-num">03</div>
+          <div class="step-content"><h4>BOC-3 Filing Included</h4><p>Required by FMCSA for all interstate operations. We file your Process Agent designation at no extra charge — included in every package.</p></div>
+        </li>
+        <li>
+          <div class="step-num">04</div>
+          <div class="step-content"><h4>UCR Registration</h4><p>Unified Carrier Registration is mandatory for interstate carriers. We ensure you're registered in the correct state and category.</p></div>
+        </li>
+        <li>
+          <div class="step-num">05</div>
+          <div class="step-content"><h4>Compliance Guidance</h4><p>We walk you through insurance requirements, ELD mandates, and everything you need once your authority is active.</p></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="guide-card">
+      <h2>How It Works — 3 Simple Steps</h2>
+      <ul class="steps">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-content"><h4>Fill Out the Form Above</h4><p>Takes less than 2 minutes. We collect everything we need to get your authority started right away.</p></div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-content"><h4>We File Everything</h4><p>Our team handles all FMCSA filings, BOC-3, UCR, and compliance documentation on your behalf within 1–3 business days.</p></div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-content"><h4>You Hit the Road</h4><p>Receive your DOT & MC numbers, get insured, start booking loads. We stay available for any questions.</p></div>
+        </li>
+      </ul>
+
+      <div class="tips">
+        <div class="tip-item"><span class="tip-icon">✓</span> DOT number typically issued within 1 business day</div>
+        <div class="tip-item"><span class="tip-icon">✓</span> MC Authority takes 21 days to become active (FMCSA requirement)</div>
+        <div class="tip-item"><span class="tip-icon">✓</span> BOC-3 and UCR filed simultaneously to save time</div>
+        <div class="tip-item"><span class="tip-icon">✓</span> You can start getting insurance quotes immediately after DOT issuance</div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="guide-card">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>How long does DOT & MC authority take?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Your DOT number is usually issued within 1 business day. MC Authority takes 21 days to become active after filing — this is a mandatory FMCSA waiting period. BOC-3 and UCR are filed the same day we submit your application.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>Do I need a truck before filing?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>No. You can file for your DOT number and MC Authority before purchasing a truck. Many owner-operators get their authority first, then use it to secure financing. Having your authority active makes you more credible when applying for commercial truck loans.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>What insurance do I need with my authority?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>FMCSA requires a minimum of $750,000 in liability insurance for general freight carriers. Hazmat carriers need $1–5 million. You'll also need cargo insurance (typically $100,000) and physical damage coverage. We help you understand exactly what's required for your operation type.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>What is BOC-3 and why do I need it?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>BOC-3 is a "Designation of Process Agent" form required by FMCSA. It designates a legal representative in each state to receive legal documents on your behalf. Without it, your MC Authority cannot be activated. We file it as part of our standard package at no extra charge.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)"><span>Can First Bridge also dispatch loads for me?</span><span class="faq-icon">+</span></button>
+          <div class="faq-a"><p>Yes! First Bridge is a full-service dispatch company. Once your authority is active and you're insured, our dispatch team can find loads, negotiate rates, and handle paperwork so you stay moving. <a href="index.html">Learn about our dispatch services →</a></p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM CTA -->
+    <div class="guide-cta">
+      <h3>Ready to Start Hauling?</h3>
+      <p>Don't let paperwork slow you down. Get your DOT & MC authority set up the right way — in 7 days or less.</p>
+      <div class="cta-btns">
+        <a href="#dot-form" class="cta-btn-solid">🚛 Get Started Now — Free</a>
+        <a href="tel:+18005550000" class="cta-btn-outline">📞 Call a Specialist</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- QUICK STATS -->
+    <div class="sidebar-card">
+      <h3>Our Track Record</h3>
+      <div class="sidebar-stat"><strong>1,000+</strong><span>Truckers Registered</span></div>
+      <div class="sidebar-stat"><strong>7 Days</strong><span>Average Setup Time</span></div>
+      <div class="sidebar-stat"><strong>4.9★</strong><span>Customer Rating</span></div>
+      <div class="sidebar-stat"><strong>100%</strong><span>Filing Accuracy</span></div>
+    </div>
+
+    <!-- SIDEBAR CTA -->
+    <div class="sidebar-cta">
+      <h3>Start Today — It's Free</h3>
+      <p>A specialist will call you within 15 minutes after you submit.</p>
+      <a href="#dot-form">Get My DOT Authority</a>
+      <a href="tel:+18005550000" class="outline">📞 Call Us Now</a>
+    </div>
+
+    <!-- RELATED RESOURCES -->
+    <div class="sidebar-card">
+      <h3>Related Resources</h3>
+      <a href="how-to-start-a-trucking-company.html" class="sidebar-link"><span class="arr">›</span> How to Start a Trucking Company</a>
+      <a href="owner-operator-startup-cost.html" class="sidebar-link"><span class="arr">›</span> Startup Cost Guide</a>
+      <a href="how-to-get-loads-with-new-mc-authority.html" class="sidebar-link"><span class="arr">›</span> Get Loads With New MC</a>
+      <a href="best-load-boards-for-owner-operators.html" class="sidebar-link"><span class="arr">›</span> Best Load Boards</a>
+      <a href="owner-operator-vs-company-driver.html" class="sidebar-link"><span class="arr">›</span> Owner-Op vs Company Driver</a>
+    </div>
+
+    <!-- FREE CALCULATORS -->
+    <div class="sidebar-card">
+      <h3>Free Calculators</h3>
+      <a href="cost-per-mile.html" class="sidebar-link"><span class="arr">›</span> Cost Per Mile Calculator</a>
+      <a href="load-profit-calculator.html" class="sidebar-link"><span class="arr">›</span> Load Profit Calculator</a>
+      <a href="owner-operator-startup-cost.html" class="sidebar-link"><span class="arr">›</span> Startup Cost Estimator</a>
+      <a href="rate-per-mile.html" class="sidebar-link"><span class="arr">›</span> Rate Per Mile Calculator</a>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>First Bridge Dispatch</h3>
+      <p>Professional DOT authority filing and dispatch services for owner-operators and small fleets across the United States.</p>
+    </div>
+    <div class="footer-section">
+      <h3>Our Services</h3>
+      <a href="index.html">Dispatch Services</a>
+      <a href="dot-authority-landing.html">DOT Authority Filing</a>
+      <a href="how-to-start-a-trucking-company.html">Start a Trucking Company</a>
+      <a href="free-trucking-calculators.html">Free Calculators</a>
+    </div>
+    <div class="footer-section">
+      <h3>Resources</h3>
+      <a href="resource-hub.html">Resource Hub</a>
+      <a href="how-dispatch-services-work.html">How Dispatch Works</a>
+      <a href="best-load-boards-for-owner-operators.html">Best Load Boards</a>
+      <a href="owner-operator-startup-cost.html">Startup Cost Guide</a>
+    </div>
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <a href="tel:+18005550000">📞 (800) 555-0000</a>
+      <a href="/cdn-cgi/l/email-protection#aac3c4ccc5eaccc3d8d9dec8d8c3cecdcf84dfd9">✉️ <span class="__cf_email__" data-cfemail="0e676068614e68677c7d7a6c7c676a696b207b7d">[email&#160;protected]</span></a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms-and-conditions.html">Terms of Service</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 First Bridge Dispatch Services · <a href="privacy-policy.html" style="color:var(--primary);">Privacy Policy</a> · <a href="terms-and-conditions.html" style="color:var(--primary);">Terms</a> · <a href="sms-disclaimer.html" style="color:var(--primary);">SMS Policy</a></p>
+    <p style="margin-top:0.4rem;">First Bridge is a DOT/MC authority filing and dispatch services company. Not affiliated with the FMCSA or any government agency.</p>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Phone formatter
+document.getElementById('phone').addEventListener('input', function(e){
+  var val = e.target.value.replace(/\D/g,'');
+  if(val.length >= 6) val = '('+val.slice(0,3)+') '+val.slice(3,6)+'-'+val.slice(6,10);
+  else if(val.length >= 3) val = '('+val.slice(0,3)+') '+val.slice(3);
+  e.target.value = val;
+});
+
+// Form submit
+function submitForm(){
+  var name   = document.getElementById('fullName').value.trim();
+  var phone  = document.getElementById('phone').value.trim();
+  var email  = document.getElementById('email').value.trim();
+  var truck  = document.querySelector('input[name="ownTruck"]:checked');
+  var opType = document.getElementById('opType').value;
+
+  if(!name)  { alert('Please enter your full name.');         document.getElementById('fullName').focus(); return; }
+  if(!phone) { alert('Please enter your phone number.');      document.getElementById('phone').focus();    return; }
+  if(!email || !email.includes('@')) { alert('Please enter a valid email address.'); document.getElementById('email').focus(); return; }
+  if(!truck) { alert('Please select whether you own a truck.'); return; }
+
+  // ✅ Replace with your Google Apps Script URL
+  fetch('https://script.google.com/macros/s/AKfycbzqCkbxKEDlzErf1AEEXAwhF6odsUBsTeXp5GL0AH8Vgd1Nws6CmZf34mf1e_t7wqhM1Q/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    body: JSON.stringify({
+      source: 'DOT Landing Page', fullName: name,
+      phone: phone, email: email, ownTruck: truck.value, opType: opType
+    })
+  }).catch(function(){});
+
+  document.getElementById('formBody').style.display = 'none';
+  document.getElementById('successName').textContent = name.split(' ')[0];
+  document.getElementById('successState').style.display = 'block';
+  document.getElementById('dot-form').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// FAQ accordion
+function toggleFaq(btn){
+  var answer = btn.nextElementSibling;
+  var isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(function(a){ a.classList.remove('open'); });
+  document.querySelectorAll('.faq-q').forEach(function(b){ b.classList.remove('open'); });
+  if(!isOpen){ answer.classList.add('open'); btn.classList.add('open'); }
+}
+
+// Smooth scroll to form
+document.querySelectorAll('a[href="#dot-form"]').forEach(function(a){
+  a.addEventListener('click', func
