@@ -88,7 +88,7 @@
   <div class="card accent">
     <h2><span class="card-icon">&#x1F4AC;</span> Questions &amp; Contact</h2>
     <p>If you have any questions about this Disclaimer or how our services work, please do not hesitate to reach out to us directly.</p>
-    <p>&#128231; Email: <strong>info@firstbridge.us</strong></p>
+    <p>&#128231; Email: <strong>info&#64;firstbridge&#46;us</strong></p>
     <p>&#127760; Or use our <a href="index.html#contact">online contact form</a> — we respond to all inquiries promptly.</p>
     <p style="margin-top:1rem;font-size:0.93rem;color:#697A8F;">You may also review our <a href="privacy-policy.html">Privacy Policy</a>, <a href="terms-and-conditions.html">Terms &amp; Conditions</a>, and <a href="sms-disclaimer.html">SMS Disclaimer</a> for additional information about how we operate.</p>
   </div>
@@ -108,7 +108,7 @@
 
 
 <!-- First Bridge AI Chatbot Widget -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ============================================================
 // First Bridge Dispatch — AI Chatbot Widget
 // Powered by Claude AI via Cloudflare Worker proxy
@@ -792,21 +792,4 @@ input.addEventListener('input', function() {
 
 // Send transcript when user leaves page
 window.addEventListener('beforeunload', function() {
-  if (chatHistory.length >= 4 && !transcriptSent) {
-    sendTranscript(false);
-  }
-});
-
-// Show unread badge after 8 seconds if chat not opened
-setTimeout(function() {
-  if (!isOpen) {
-    badge.style.display = 'flex';
-  }
-}, 8000);
-
-})();
-
-</script>
-
-</body>
-</html>
+  if (chatHistory.length >= 4 && !tran

@@ -355,7 +355,7 @@
             </div>
             <div class="footer-section">
                 <h3>Contact Info</h3>
-                <p>&#128231; Email: info@firstbridge.us</p>
+                <p>&#128231; Email: info&#64;firstbridge&#46;us</p>
                 <p>&#127760; Available 24/7</p>
                 <p>&#128205; Serving All 48 States</p>
             </div>
@@ -370,7 +370,7 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Lane rate data: [low, avg, high] per mile by equipment type
     // Adjusted by region pair and weight
     var BASE_RATES = {
@@ -1213,21 +1213,4 @@ input.addEventListener('input', function() {
 
 // Send transcript when user leaves page
 window.addEventListener('beforeunload', function() {
-  if (chatHistory.length >= 4 && !transcriptSent) {
-    sendTranscript(false);
-  }
-});
-
-// Show unread badge after 8 seconds if chat not opened
-setTimeout(function() {
-  if (!isOpen) {
-    badge.style.display = 'flex';
-  }
-}, 8000);
-
-})();
-
-</script>
-
-</body>
-</html>
+  if (chatHistory.length >= 4 && !tran
